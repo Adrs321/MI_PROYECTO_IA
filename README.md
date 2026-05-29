@@ -1,20 +1,23 @@
-# Pipeline de Datos - Limpieza y Transformación (Dataset Mascotas)
+# Pipeline de Datos – Limpieza, Transformación y Validación del Dataset
 
-Este proyecto automatiza la ingesta, limpieza y transformación de un conjunto de datos clínico veterinario utilizando Python y Pandas.
+**Asignatura:** GESTIÓN DE DATOS PARA IA (ITY1101)  
+**Resultado de Aprendizaje:** RA2  
+**Indicadores de Logro:** IL 2.2 – IL 2.5  
 
-## Transformaciones Aplicadas
+Este proyecto implementa un pipeline de datos automatizado, reproducible y trazable para un conjunto de datos clínico veterinario (`mascotas.csv`). El flujo está diseñado en dos fases críticas: la limpieza de anomalías de formato y la posterior validación estructural y semántica de los datos bajo reglas de negocio.
 
-1. **Remoción de Registros Inválidos**: Se eliminaron filas completamente vacías y registros huérfanos sin identificación.
-2. **Control de Duplicados**: Se unificaron registros repetidos (mismo paciente, dueño y fecha de consulta).
-3. **Estandarización de Variables Categóricas**:
-   * Se normalizó la columna `especie` a minúsculas, unificando géneros (`perra` -> `perro`, `gata` -> `gato`) e idiomas (`cat` -> `gato`).
-   * Se aplicó formato capitalizado a nombres de mascotas y dueños.
-4. **Formato de Fechas**: Se parsearon múltiples estructuras (`mixed formats`) unificando todo al formato estándar `YYYY-MM-DD`.
-5. **Tratamiento de Outliers**:
-   * Se corrigieron errores de digitación en peso (ej. 350 kg corregido a 35.0 kg basado en raza/especie).
-   * Valores absurdos o negativos se marcaron como nulos.
-6. **Imputación de Nulos**: Las edades faltantes fueron completadas usando la mediana de edad correspondiente a cada especie.
-7. **Ingeniería de Características**: Se añadió la columna `categoria_costo` para segmentar el valor de la consulta.
+---
 
-## Estructura de Salida
-El dataset resultante se almacena de forma automatizada en `data/processed/mascotas_limpias.csv`.
+## 📁 Estructura del Proyecto
+
+[cite_start]De acuerdo con las buenas prácticas de modularidad, documentación y trazabilidad, el repositorio se organiza de la siguiente manera[cite: 12, 20]:
+
+```text
+mi_proyecto_pipeline/
+├── data/
+│   ├── raw/          # Contiene el dataset original/crudo (Inmutable)
+│   └── processed/    # Contiene los datasets limpios y validados resultantes
+├── src/
+│   ├── limpiar_datos.py    # Script de la Fase 1: Limpieza y transformación
+│   └── validar_datos.py    # Script de la Fase 2: Control de calidad (QA) y Logs
+└── README.md         # Documentación técnica del proceso
