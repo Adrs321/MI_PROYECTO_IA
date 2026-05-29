@@ -1,0 +1,3 @@
+id_mascota,nombre,especie,raza,edad_años,peso_kg,fecha_consulta,dueño_nombre,dueño_email,motivo_consulta,costo_consulta,categoria_costo,rango_peso
+20,Garfield,gato,Doméstico,10.0,,2023-12-10,Jorge Castillo,garfield@gmail.com,Control de peso,25000.0,Estándar,
+33,,,Doméstico,4.0,4.5,2024-04-15,Luis Espinoza,sin_nombre@mail.cl,Vacunación,18000.0,Económica,
